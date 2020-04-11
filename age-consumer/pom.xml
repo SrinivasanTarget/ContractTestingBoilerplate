@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>ContractTestingBoilerplate</artifactId>
+        <groupId>com.example</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>age-consumer</artifactId>
+
+    <dependencies>
+        <dependency>
+            <groupId>au.com.dius</groupId>
+            <artifactId>pact-jvm-consumer-junit5</artifactId>
+            <version>4.0.9</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>au.com.dius</groupId>
+            <artifactId>pact-jvm-consumer-java8_2.12</artifactId>
+            <version>3.6.7</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>au.com.dius</groupId>
+                <artifactId>pact-jvm-provider-maven_2.12</artifactId>
+                <version>3.6.7</version>
+                <configuration>
+                    <pactBrokerUrl>http://localhost:82</pactBrokerUrl>
+                    <pactDirectory>target/pacts</pactDirectory>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
