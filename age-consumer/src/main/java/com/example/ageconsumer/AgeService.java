@@ -1,6 +1,10 @@
 package com.example.ageconsumer;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -22,10 +26,13 @@ public class AgeService {
                 .queryParam("date", birthDate)
                 .toUriString();
         restTemplate = new RestTemplate();
-        DateResponse dateResponse = restTemplate.getForObject(uri, DateResponse.class);
-        assert dateResponse != null;
-        if(dateResponse.getIsValidDate()) {
-            LocalDate birthday = LocalDate.of(dateResponse.getYear(), dateResponse.getMonth(), dateResponse.getDay());
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("content-type", "application/json");
+
+        ResponseEntity<DateResponse> responseEntity = restTemplate.exchange(uri, HttpMethod.GET, new HttpEntity<>(headers), DateResponse.class);
+        assert responseEntity.getBody() != null;
+        if(responseEntity.getBody().getIsValidDate()) {
+            LocalDate birthday = LocalDate.of(responseEntity.getBody().getYear(), responseEntity.getBody().getMonth(), responseEntity.getBody().getDay());
 
             Period period = Period.between(birthday, LocalDate.now());
             return new AgeResponse(period.getDays(), period.getMonths(), period.getYears());

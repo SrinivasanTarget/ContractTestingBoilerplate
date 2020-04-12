@@ -17,6 +17,12 @@
             <artifactId>pact-jvm-provider-spring</artifactId>
             <version>4.0.9</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-contract-verifier</artifactId>
+            <version>2.2.2.RELEASE</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
@@ -38,6 +44,17 @@
                         <pact.verifier.publishResults>true</pact.verifier.publishResults>
                     </configuration>
                     <pactBrokerUrl/>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-contract-maven-plugin</artifactId>
+                <version>2.2.2.RELEASE</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <baseClassForTests>
+                        com.example.dateprovider.springcloudcontract.BaseTestClass
+                    </baseClassForTests>
                 </configuration>
             </plugin>
         </plugins>
