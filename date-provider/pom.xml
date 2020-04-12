@@ -18,5 +18,28 @@
             <version>4.0.9</version>
         </dependency>
     </dependencies>
-
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>au.com.dius</groupId>
+                <artifactId>pact-jvm-provider-maven</artifactId>
+                <version>4.0.0</version>
+                <configuration>
+                    <serviceProviders>
+                        <serviceProvider>
+                            <name>dateProvider</name>
+                            <pactBroker>
+                                <url>http://localhost:82/</url>
+                            </pactBroker>
+                        </serviceProvider>
+                    </serviceProviders>
+                    <configuration>
+                        <pact.showStacktrace>true</pact.showStacktrace>
+                        <pact.verifier.publishResults>true</pact.verifier.publishResults>
+                    </configuration>
+                    <pactBrokerUrl/>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
