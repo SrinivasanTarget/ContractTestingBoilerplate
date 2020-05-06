@@ -14,6 +14,6 @@ public class ConsumerDateInfo {
 
     @Override
     public String toString() {
-        return "Car [make=" + localDate + ", manufacturer=" + isLeapYear + "]";
+        return "ConsumerDateInfo [LocalDate=" + localDate + ", isLeapYear=" + isLeapYear + "]";
     }
 }
