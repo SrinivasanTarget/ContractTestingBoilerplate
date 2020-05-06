@@ -14,8 +14,8 @@
     <dependencies>
         <dependency>
             <groupId>au.com.dius</groupId>
-            <artifactId>pact-jvm-provider-spring</artifactId>
-            <version>4.0.9</version>
+            <artifactId>pact-jvm-provider-junit5</artifactId>
+            <version>4.0.10</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -27,23 +27,16 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>au.com.dius</groupId>
-                <artifactId>pact-jvm-provider-maven</artifactId>
-                <version>4.0.0</version>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M4</version>
                 <configuration>
-                    <serviceProviders>
-                        <serviceProvider>
-                            <name>dateProvider</name>
-                            <pactBroker>
-                                <url>http://localhost:82/</url>
-                            </pactBroker>
-                        </serviceProvider>
-                    </serviceProviders>
-                    <configuration>
-                        <pact.showStacktrace>true</pact.showStacktrace>
-                        <pact.verifier.publishResults>true</pact.verifier.publishResults>
-                    </configuration>
-                    <pactBrokerUrl/>
+                    <systemProperties>
+                        <property>
+                            <name>pact.verifier.publishResults</name>
+                            <value>true</value>
+                        </property>
+                    </systemProperties>
                 </configuration>
             </plugin>
             <plugin>
@@ -55,6 +48,7 @@
                     <baseClassForTests>
                         com.example.dateprovider.springcloudcontract.BaseTestClass
                     </baseClassForTests>
+                    <testFramework>JUNIT5</testFramework>
                 </configuration>
             </plugin>
         </plugins>

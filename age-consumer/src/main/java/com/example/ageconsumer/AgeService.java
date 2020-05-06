@@ -18,18 +18,16 @@ public class AgeService {
     @Value("${dateproviderservice.baseurl}")
     private String dateProviderServiceURL;
 
-    private RestTemplate restTemplate;
-
     public AgeResponse calculateAge(String birthDate) {
         String uri = UriComponentsBuilder.fromHttpUrl(dateProviderServiceURL)
                 .path("provider/validDate")
                 .queryParam("date", birthDate)
                 .toUriString();
-        restTemplate = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
         headers.add("content-type", "application/json");
 
-        ResponseEntity<DateResponse> responseEntity = restTemplate.exchange(uri, HttpMethod.GET, new HttpEntity<>(headers), DateResponse.class);
+        ResponseEntity<DateResponse> responseEntity = new RestTemplate().exchange(uri, HttpMethod.GET,
+                new HttpEntity<>(headers), DateResponse.class);
         assert responseEntity.getBody() != null;
         if(responseEntity.getBody().getIsValidDate()) {
             LocalDate birthday = LocalDate.of(responseEntity.getBody().getYear(), responseEntity.getBody().getMonth(), responseEntity.getBody().getDay());

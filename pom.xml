@@ -6,7 +6,9 @@
 	<modules>
 		<module>date-provider</module>
 		<module>age-consumer</module>
-	</modules>
+		<module>date-producer-kafka</module>
+        <module>date-consumer-kafka</module>
+    </modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>

@@ -166,7 +166,7 @@ $ mvn pact:publish
 
 ### Verify Pacts in Pact Broker at Provider side
 ```shell script
-mvn clean pact:verify -pl date-provider
+mvn clean -Dtest=PactAgeProviderTest test -pl date-provider
 ```
 
 ![Pact Broker](images/PactBroker.png)
