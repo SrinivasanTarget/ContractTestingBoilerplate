@@ -2,6 +2,9 @@
 
 Contract Testing Boilerplate has two microservices developed using Spring Boot in a maven multi-module project.
 
+## What is Contract Testing?
+An integration contract test is a test at the boundary of an external service verifying that it meets the contract expected by a consuming service.
+
   - Date Provider MicroService - /provider/validDate - Validates whether given date is a valid date or not
   - Age Consumer MicroService - /age-calculate - Returns age of a person based on given date
   
@@ -20,11 +23,7 @@ Start Age Consumer MicroService by default runs in port 8081:
 mvn spring-boot:run -pl age-consumer
 ```
 
-
-## What is Contract Testing?
-An integration contract test is a test at the boundary of an external service verifying that it meets the contract expected by a consuming service.
-
-<details><summary><h2><b>Pact</b></h2></summary>
+<details><summary><h2><b>Pact Tests</b></h2></summary>
 
 Pact is a contract testing tool. Contract testing is a way to ensure that services (such as an API provider and a client) can communicate with each other. Without contract testing, the only way to know that services can communicate is by using expensive and brittle integration tests.
 
@@ -170,5 +169,14 @@ mvn clean -Dtest=PactAgeProviderTest test -pl date-provider
 ```
 
 ![Pact Broker](images/PactBroker.png)
+
+</details>
+
+<details><summary><h2><b>Spring Cloud Contract Tests</b></h2></summary>
+
+Spring Cloud Contract is an umbrella project holds solutions to help users implement contract tests. It has two main modules:
+
+* Spring Cloud Contract Verifier, which is used mainly by the producer side.
+* Spring Cloud Contract Stub Runner, which is used by the consumer side.
 
 </details>
