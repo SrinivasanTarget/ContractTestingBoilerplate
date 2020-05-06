@@ -24,8 +24,8 @@ mvn spring-boot:run -pl age-consumer
 ## What is Contract Testing?
 An integration contract test is a test at the boundary of an external service verifying that it meets the contract expected by a consuming service.
 
+<details><summary><h2><b>Pact</b></h2></summary>
 
-## What is PACT?
 Pact is a contract testing tool. Contract testing is a way to ensure that services (such as an API provider and a client) can communicate with each other. Without contract testing, the only way to know that services can communicate is by using expensive and brittle integration tests.
 
 ### Run Consumer contract Tests
@@ -171,3 +171,4 @@ mvn clean -Dtest=PactAgeProviderTest test -pl date-provider
 
 ![Pact Broker](images/PactBroker.png)
 
+</details>
