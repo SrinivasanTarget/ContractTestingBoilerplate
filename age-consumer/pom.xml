@@ -44,7 +44,7 @@
                 <artifactId>pact-jvm-provider-maven</artifactId>
                 <version>4.0.0</version>
                 <configuration>
-                    <pactBrokerUrl>http://localhost:82</pactBrokerUrl>
+                    <pactBrokerUrl>http://localhost:8282</pactBrokerUrl>
                     <pactDirectory>target/pacts</pactDirectory>
                 </configuration>
             </plugin>
