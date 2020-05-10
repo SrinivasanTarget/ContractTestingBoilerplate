@@ -23,7 +23,9 @@ Start Age Consumer MicroService by default runs in port 8081:
 mvn spring-boot:run -pl age-consumer
 ```
 
-<details><summary><h2><b>Pact Tests</b></h2></summary>
+## Pact Tests
+<details>
+<summary>Click to expand!</summary>
 
 Pact is a contract testing tool. Contract testing is a way to ensure that services (such as an API provider and a client) can communicate with each other. Without contract testing, the only way to know that services can communicate is by using expensive and brittle integration tests.
 
@@ -152,7 +154,7 @@ Generated Pact file:
 }
 ```
 
-### Start Pact Broker at default port `:82`
+### Start Pact Broker at default port `:8282`
 ```dockerfile
 docker-compose up -d
 ```
@@ -172,7 +174,9 @@ mvn clean -Dtest=PactAgeProviderTest test -pl date-provider
 
 </details>
 
-<details><summary><h2><b>Spring Cloud Contract Tests</b></h2></summary>
+## Spring Cloud Contract Tests
+<details>
+<summary>Click to expand!</summary>
 
 Spring Cloud Contract is an umbrella project holds solutions to help users implement contract tests. It has two main modules:
 
