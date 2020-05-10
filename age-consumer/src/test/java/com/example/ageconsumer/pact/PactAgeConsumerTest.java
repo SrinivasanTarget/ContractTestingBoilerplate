@@ -29,7 +29,7 @@ public class PactAgeConsumerTest {
         headers.put("content-type", "application/json");
 
         return builder
-                .given("")
+                .given("valid date received from provider")
                 .uponReceiving("valid date from provider")
                 .method("GET")
                 .queryMatchingDate("date", "2001-02-03")
