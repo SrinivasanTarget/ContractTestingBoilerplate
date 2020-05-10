@@ -1,23 +1,35 @@
-version: '3'
+version: "3"
 
 services:
-
   postgres:
-    image: "postgres:9.6.3"
+    image: postgres
+    healthcheck:
+      test: psql postgres --command "select 1" -U postgres
     ports:
       - "5432:5432"
+    volumes:
+      - postgres-volume:/var/lib/postgresql/data
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
+      POSTGRES_DB: postgres
 
-  broker_app:
-    image: dius/pact-broker
+  pact_broker:
+    image: pactfoundation/pact-broker
+    build: .
     ports:
-      - "82:80"
-    links:
+      - "8282:9292"
+    depends_on:
       - postgres
     environment:
+      PACT_BROKER_DATABASE_URL_ENVIRONMENT_VARIABLE_NAME: DATABASE_URL
+      DATABASE_URL: "postgres://postgres:password@postgres/postgres"
       PACT_BROKER_DATABASE_USERNAME: postgres
       PACT_BROKER_DATABASE_PASSWORD: password
       PACT_BROKER_DATABASE_HOST: postgres
       PACT_BROKER_DATABASE_NAME: postgres
+      PACT_BROKER_PORT: "9292"
+      PACT_BROKER_LOG_LEVEL: INFO
+
+volumes:
+  postgres-volume:
