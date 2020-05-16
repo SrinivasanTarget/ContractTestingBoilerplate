@@ -7,7 +7,10 @@ import au.com.dius.pact.consumer.junit5.ProviderType;
 import au.com.dius.pact.core.model.annotations.Pact;
 import au.com.dius.pact.core.model.messaging.Message;
 import au.com.dius.pact.core.model.messaging.MessagePact;
+import com.example.consumer.ConsumerDateInfo;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import io.pactfoundation.consumer.dsl.LambdaDsl;
+import lombok.SneakyThrows;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
@@ -30,10 +33,13 @@ public class DateConsumerTest {
                 .toPact();
     }
 
+    @SneakyThrows
     @Test
     @PactTestFor(pactMethod = "validDateMessageFromKafkaProvider")
     public void testValidDateFromProvider(List<Message> messages) {
         assertThat(messages).isNotEmpty();
-        assertThat(new String(messages.get(0).contentsAsBytes())).isEqualTo("{\"isLeapYear\":true,\"localDate\":\"2000-01-31\"}");
+        assertThat(new ObjectMapper().readValue(new String(messages.get(0).contentsAsBytes()), ConsumerDateInfo.class))
+                .hasFieldOrProperty("localDate")
+                .hasFieldOrPropertyWithValue("isLeapYear", true);
     }
 }

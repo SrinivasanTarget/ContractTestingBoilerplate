@@ -1,5 +1,6 @@
 package com.example.consumer;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
 @Getter
@@ -9,5 +10,7 @@ import lombok.*;
 @ToString
 public class ConsumerDateInfo {
     private String localDate;
+
+    @JsonProperty(value="isLeapYear")
     private boolean isLeapYear;
 }
