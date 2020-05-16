@@ -8,7 +8,12 @@ import au.com.dius.pact.provider.junit.loader.PactBroker;
 import au.com.dius.pact.provider.junit.target.AmqpTarget;
 import au.com.dius.pact.provider.junit.target.Target;
 import au.com.dius.pact.provider.junit.target.TestTarget;
+import com.example.producer.ProducerDateInfo;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.SneakyThrows;
 import org.junit.runner.RunWith;
+
+import java.time.LocalDate;
 
 @RunWith(PactRunner.class)
 @Provider("dateProviderKafka")
@@ -19,8 +24,10 @@ public class DateProducerTest {
     @TestTarget
     public final Target target = new AmqpTarget();
 
+    @SneakyThrows
     @PactVerifyProvider("valid date from kafka provider")
     public String verifyDateInformationMessage() {
-        return "{\"isLeapYear\":true,\"localDate\":\"2000-01-31\"}";
+        return new ObjectMapper().writeValueAsString(new ProducerDateInfo(LocalDate.now().toString(),
+                true));
     }
 }

@@ -1,8 +1,7 @@
 package com.example.producer;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
-
-import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -11,5 +10,7 @@ import java.time.LocalDate;
 @ToString
 public class ProducerDateInfo {
     private String localDate;
+
+    @JsonProperty(value="isLeapYear")
     private boolean isLeapYear;
 }
