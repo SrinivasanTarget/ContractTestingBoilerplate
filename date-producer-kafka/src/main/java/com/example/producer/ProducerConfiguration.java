@@ -36,12 +36,12 @@ public class ProducerConfiguration {
     }
 
     @Bean
-    public ProducerFactory<String, DateInfo> producerFactory() {
+    public ProducerFactory<String, ProducerDateInfo> producerFactory() {
         return new DefaultKafkaProducerFactory<>(producerConfigs());
     }
 
     @Bean
-    public KafkaTemplate<String, DateInfo> kafkaTemplate() {
+    public KafkaTemplate<String, ProducerDateInfo> kafkaTemplate() {
         return new KafkaTemplate<>(producerFactory());
     }
 

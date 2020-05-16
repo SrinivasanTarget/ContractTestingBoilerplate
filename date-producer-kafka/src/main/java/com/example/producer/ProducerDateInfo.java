@@ -9,7 +9,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class DateInfo {
-    private LocalDate localDate;
+public class ProducerDateInfo {
+    private String localDate;
     private boolean isLeapYear;
 }

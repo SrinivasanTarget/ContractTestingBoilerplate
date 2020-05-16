@@ -9,13 +9,13 @@ import java.time.LocalDate;
 public class Producer {
 
     @Autowired
-    private KafkaTemplate<String, DateInfo> kafkaTemplate;
+    private KafkaTemplate<String, ProducerDateInfo> kafkaTemplate;
 
     @Value(value = "${kafka.topic}")
     private String topicName;
 
     public void send() {
         LocalDate localDate = LocalDate.now();
-        kafkaTemplate.send(topicName, new DateInfo(localDate, localDate.isLeapYear()));
+        kafkaTemplate.send(topicName, new ProducerDateInfo(localDate.toString(), localDate.isLeapYear()));
     }
 }

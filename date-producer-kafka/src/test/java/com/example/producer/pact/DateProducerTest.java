@@ -13,7 +13,7 @@ import org.junit.runner.RunWith;
 @RunWith(PactRunner.class)
 @Provider("dateProviderKafka")
 @Consumer("dateConsumerKafka")
-@PactBroker(host = "localhost", port = "82")
+@PactBroker(host = "localhost", port = "8282")
 public class DateProducerTest {
 
     @TestTarget

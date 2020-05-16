@@ -18,7 +18,7 @@ public class Consumer {
     @KafkaListener(topics = "testing")
     public void receive(ConsumerDateInfo consumerDateInfo) {
         String consumerInfo = new ObjectMapper().writeValueAsString(consumerDateInfo);
-        LOGGER.info("received car='{}'", consumerInfo);
+        LOGGER.info("received consumer='{}'", consumerInfo);
         this.consumerDateInfo = consumerDateInfo;
     }
 }

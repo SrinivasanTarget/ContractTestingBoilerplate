@@ -8,12 +8,8 @@ import java.time.LocalDate;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class ConsumerDateInfo {
-    private LocalDate localDate;
+    private String localDate;
     private boolean isLeapYear;
-
-    @Override
-    public String toString() {
-        return "ConsumerDateInfo [LocalDate=" + localDate + ", isLeapYear=" + isLeapYear + "]";
-    }
 }

@@ -21,11 +21,6 @@
             <artifactId>spring-kafka</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
             <groupId>org.springframework.kafka</groupId>
             <artifactId>spring-kafka-test</artifactId>
             <scope>test</scope>
@@ -50,7 +45,7 @@
                 <artifactId>pact-jvm-provider-maven</artifactId>
                 <version>4.0.0</version>
                 <configuration>
-                    <pactBrokerUrl>http://localhost:82</pactBrokerUrl>
+                    <pactBrokerUrl>http://localhost:8282</pactBrokerUrl>
                     <pactDirectory>target/pacts</pactDirectory>
                 </configuration>
             </plugin>
