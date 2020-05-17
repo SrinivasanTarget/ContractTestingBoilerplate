@@ -27,7 +27,9 @@ public class DateProducerTest {
     @SneakyThrows
     @PactVerifyProvider("valid date from kafka provider")
     public String verifyDateInformationMessage() {
-        return new ObjectMapper().writeValueAsString(new ProducerDateInfo(LocalDate.now().toString(),
-                true));
+        return new ObjectMapper().writeValueAsString(ProducerDateInfo.builder()
+                .localDate(LocalDate.now().toString())
+                .isLeapYear(true)
+                .build());
     }
 }
