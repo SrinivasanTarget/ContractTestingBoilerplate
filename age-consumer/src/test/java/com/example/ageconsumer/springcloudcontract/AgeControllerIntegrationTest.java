@@ -31,7 +31,7 @@ public class AgeControllerIntegrationTest {
     private MockMvc mockMvc;
 
     @Test
-    public void shouldReturnValidDateWhenRequestParamHasValidDate()
+    public void shouldCalculateAgeForAGivenValidBirthDate()
             throws Exception {
 
         mockMvc.perform(MockMvcRequestBuilders.get("/age-calculate")
