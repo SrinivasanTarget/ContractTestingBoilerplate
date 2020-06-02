@@ -8,7 +8,7 @@ import au.com.dius.pact.provider.junit.loader.PactBroker;
 import au.com.dius.pact.provider.junit.target.AmqpTarget;
 import au.com.dius.pact.provider.junit.target.Target;
 import au.com.dius.pact.provider.junit.target.TestTarget;
-import com.example.producer.ProducerDateInfo;
+import com.example.producer.Producer;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.SneakyThrows;
 import org.junit.runner.RunWith;
@@ -27,9 +27,6 @@ public class DateProducerTest {
     @SneakyThrows
     @PactVerifyProvider("valid date from kafka provider")
     public String verifyDateInformationMessage() {
-        return new ObjectMapper().writeValueAsString(ProducerDateInfo.builder()
-                .localDate(LocalDate.now().toString())
-                .isLeapYear(true)
-                .build());
+        return new ObjectMapper().writeValueAsString(new Producer().generateMessage(LocalDate.now()));
     }
 }
