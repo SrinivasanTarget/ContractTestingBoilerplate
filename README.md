@@ -184,3 +184,12 @@ Spring Cloud Contract is an umbrella project holds solutions to help users imple
 * Spring Cloud Contract Stub Runner, which is used by the consumer side.
 
 </details>
+
+## Blogs
+
+* [Consumer Driven Contract Testing [Webinar Recording]](https://blog.testproject.io/2020/06/15/consumer-driven-contract-testing-the-ultimate-guide-to-testing-microservices/)
+* [Introduction to consumer-driven contracts](https://blog.testproject.io/2020/04/27/introduction-to-consumer-contract-testing/)
+* [Consumer-Driven Contract Testing using Pact Java](https://blog.testproject.io/2020/05/27/consumer-driven-contract-testing-using-pact-java/)
+* [Consumer-Driven Contract Testing using Spring Cloud Contracts](https://blog.testproject.io/2020/05/20/consumer-driven-contract-testing-using-spring-cloud-contract/)
+* [Event-Driven Architecture: How to Perform Contract Testing in Kafka/pubSub](https://blog.testproject.io/2020/06/03/event-driven-architecture-how-to-perform-contract-testing-in-kafka-pubsub/)
+* [Integrating Contract Testing in Build Pipelines](https://blog.testproject.io/2020/06/09/integrating-consumer-contract-testing-in-build-pipelines/)
