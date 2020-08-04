@@ -1,0 +1,38 @@
+{
+  "consumer": {
+    "name": "the-consumer"
+  },
+  "provider": {
+    "name": "the-provider"
+  },
+  "interactions": [
+    {
+      "description": "GET /provider/validDate -> 200",
+      "request": {
+        "method": "GET",
+        "path": "/provider/validDate",
+        "query": "date=2001-02-03",
+        "headers": {
+          "connection": "keep-alive",
+          "content-type": "application/json",
+          "accept": "application/json, application/*+json",
+          "user-agent": "Java/11.0.6"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json"
+        },
+        "body": {
+          "givenDate": "2001-02-03",
+          "year": 2001,
+          "month": 2,
+          "day": 3,
+          "isValidDate": true,
+          "message": "hello"
+        }
+      }
+    }
+  ]
+}
