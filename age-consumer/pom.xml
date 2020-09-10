@@ -49,7 +49,7 @@
             <plugin>
                 <groupId>au.com.dius</groupId>
                 <artifactId>pact-jvm-provider-maven</artifactId>
-                <version>4.0.0</version>
+                <version>4.0.10</version>
                 <configuration>
                     <pactBrokerUrl>http://localhost:8282</pactBrokerUrl>
                     <pactDirectory>target/pacts</pactDirectory>
