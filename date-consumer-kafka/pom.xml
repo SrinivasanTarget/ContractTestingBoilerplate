@@ -26,15 +26,24 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>au.com.dius</groupId>
-            <artifactId>pact-jvm-consumer-junit5</artifactId>
-            <version>4.0.9</version>
-            <scope>test</scope>
+            <groupId>au.com.dius.pact.consumer</groupId>
+            <artifactId>junit5</artifactId>
+            <version>4.1.7</version>
         </dependency>
         <dependency>
-            <groupId>au.com.dius</groupId>
-            <artifactId>pact-jvm-consumer-java8</artifactId>
-            <version>4.0.9</version>
+            <groupId>au.com.dius.pact.consumer</groupId>
+            <artifactId>java8</artifactId>
+            <version>4.1.7</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-contract-stub-runner</artifactId>
+            <version>2.2.2.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.awaitility</groupId>
+            <artifactId>awaitility</artifactId>
+            <version>3.1.6</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

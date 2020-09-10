@@ -1,13 +1,12 @@
 package com.example.producer.pact;
 
 import au.com.dius.pact.provider.PactVerifyProvider;
-import au.com.dius.pact.provider.junit.Consumer;
 import au.com.dius.pact.provider.junit.PactRunner;
-import au.com.dius.pact.provider.junit.Provider;
-import au.com.dius.pact.provider.junit.loader.PactBroker;
-import au.com.dius.pact.provider.junit.target.AmqpTarget;
-import au.com.dius.pact.provider.junit.target.Target;
-import au.com.dius.pact.provider.junit.target.TestTarget;
+import au.com.dius.pact.provider.junit5.MessageTestTarget;
+import au.com.dius.pact.provider.junitsupport.Consumer;
+import au.com.dius.pact.provider.junitsupport.Provider;
+import au.com.dius.pact.provider.junitsupport.loader.PactBroker;
+import au.com.dius.pact.provider.junitsupport.target.TestTarget;
 import com.example.producer.Producer;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.SneakyThrows;
@@ -22,7 +21,7 @@ import java.time.LocalDate;
 public class DateProducerTest {
 
     @TestTarget
-    public final Target target = new AmqpTarget();
+    public final MessageTestTarget target = new MessageTestTarget();
 
     @SneakyThrows
     @PactVerifyProvider("valid date from kafka provider")
