@@ -50,9 +50,9 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>au.com.dius</groupId>
-                <artifactId>pact-jvm-provider-maven</artifactId>
-                <version>4.0.0</version>
+                <groupId>au.com.dius.pact.provider</groupId>
+                <artifactId>maven</artifactId>
+                <version>4.1.7</version>
                 <configuration>
                     <pactBrokerUrl>http://localhost:8282</pactBrokerUrl>
                     <pactDirectory>target/pacts</pactDirectory>
