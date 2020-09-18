@@ -8,6 +8,7 @@ import au.com.dius.pact.provider.junitsupport.Consumer;
 import au.com.dius.pact.provider.junitsupport.Provider;
 import au.com.dius.pact.provider.junitsupport.State;
 import au.com.dius.pact.provider.junitsupport.loader.PactBroker;
+import au.com.dius.pact.provider.junitsupport.loader.VersionSelector;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.TestTemplate;
@@ -18,7 +19,12 @@ import org.springframework.boot.web.server.LocalServerPort;
 
 @Provider("dateProvider")
 @Consumer("ageConsumer")
-@PactBroker(host = "localhost", port = "8282")
+@PactBroker(
+        host = "localhost",
+        port = "8282",
+        consumerVersionSelectors = {
+            @VersionSelector(tag = "dev"), @VersionSelector(tag = "master"), @VersionSelector(tag = "test")
+        })
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class PactAgeProviderTest {
 

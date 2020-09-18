@@ -53,6 +53,10 @@
                 <configuration>
                     <pactBrokerUrl>http://localhost:8282</pactBrokerUrl>
                     <pactDirectory>target/pacts</pactDirectory>
+                    <projectVersion>1.0.0</projectVersion>
+                    <tags>
+                        <tag>master</tag>
+                    </tags>
                 </configuration>
             </plugin>
         </plugins>
