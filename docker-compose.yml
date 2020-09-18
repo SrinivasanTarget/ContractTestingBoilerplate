@@ -16,7 +16,6 @@ services:
 
   pact_broker:
     image: pactfoundation/pact-broker
-    build: .
     ports:
       - "8282:9292"
     depends_on:
