@@ -48,7 +48,7 @@
         <dependency>
             <groupId>au.com.dius.pact.provider</groupId>
             <artifactId>junit</artifactId>
-            <version>4.1.7</version>
+            <version>4.1.9</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
