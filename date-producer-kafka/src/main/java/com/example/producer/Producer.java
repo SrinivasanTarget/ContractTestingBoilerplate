@@ -1,6 +1,5 @@
 package com.example.producer;
 
-import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -20,7 +19,6 @@ public class Producer {
         kafkaTemplate.send(topicName, generateMessage(localDate));
     }
 
-    @NotNull
     public ProducerDateInfo generateMessage(LocalDate localDate) {
         return new ProducerDateInfo(localDate.toString(), localDate.isLeapYear());
     }
