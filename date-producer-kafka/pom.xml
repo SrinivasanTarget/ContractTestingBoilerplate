@@ -26,34 +26,19 @@
             <artifactId>spring-kafka</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
             <groupId>org.springframework.kafka</groupId>
             <artifactId>spring-kafka-test</artifactId>
             <scope>test</scope>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>au.com.dius</groupId>-->
-<!--            <artifactId>pact-jvm-provider-spring</artifactId>-->
-<!--            <version>4.0.9</version>-->
-<!--        </dependency>-->
         <dependency>
             <groupId>au.com.dius.pact.provider</groupId>
             <artifactId>junit5</artifactId>
-            <version>4.1.10</version>
-        </dependency>
-        <dependency>
-            <groupId>au.com.dius.pact.provider</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.1.10</version>
+            <version>4.2.11</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-contract-verifier</artifactId>
-            <version>2.2.4.RELEASE</version>
+            <version>3.0.3</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
