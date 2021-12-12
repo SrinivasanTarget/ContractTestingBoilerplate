@@ -57,7 +57,7 @@
                                 <packageToScan>src.test.java.com.example.producer.pact</packageToScan>
                             </packagesToScan>
                             <pactBroker>
-                                <url>http://localhost:82/</url>
+                                <url>http://localhost:8282/</url>
                             </pactBroker>
                         </serviceProvider>
                     </serviceProviders>
