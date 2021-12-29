@@ -40,7 +40,6 @@ public class PactAgeConsumerTest {
                 .body(LambdaDsl.newJsonBody((object) -> {
                     object.numberType("year", 2000);
                     object.numberType("month", 8);
-                    object.numberType("day", 3);
                     object.booleanType("isValidDate", true);
                 }).build())
                 .toPact();
