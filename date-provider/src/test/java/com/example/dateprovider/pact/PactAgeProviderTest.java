@@ -20,8 +20,7 @@ import org.springframework.boot.web.server.LocalServerPort;
 @Provider("dateProvider")
 @Consumer("ageConsumer")
 @PactBroker(
-        host = "http://pact_broker.com",
-        port = "9292",
+        host = "http://pact_broker.com:9292",
         consumerVersionSelectors = {
             @VersionSelector(tag = "dev"), @VersionSelector(tag = "master"), @VersionSelector(tag = "test")
         })
