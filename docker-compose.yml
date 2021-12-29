@@ -3,6 +3,10 @@ version: "3"
 services:
   postgres:
     image: postgres
+    networks:
+      main:
+        aliases:
+          - postgres
     healthcheck:
       test: psql postgres --command "select 1" -U postgres
     ports:
@@ -16,6 +20,10 @@ services:
 
   pact_broker:
     image: pactfoundation/pact-broker
+    networks:
+      main:
+        aliases:
+          - pact_broker
     ports:
       - "8282:9292"
     depends_on:
@@ -29,6 +37,27 @@ services:
       PACT_BROKER_DATABASE_NAME: postgres
       PACT_BROKER_PORT: "9292"
       PACT_BROKER_LOG_LEVEL: INFO
+      PACT_BROKER_WEBHOOK_HOST_WHITELIST: "web"
+      PACT_BROKER_WEBHOOK_SCHEME_WHITELIST: http
+      PACT_BROKER_WEBHOOK_HTTP_METHOD_WHITELIST: "POST"
 
+
+  jenkins:
+    # image: jenkins/jenkins
+    build: .
+    networks:
+      main:
+        aliases:
+          - web
+    ports:
+      - 8080:8080
+      - 50000:50000
+    links:
+      - pact_broker:pact_broker.com
+
+    # uncomment for docker in docker
+    privileged: true
+networks:
+  main:
 volumes:
   postgres-volume:
