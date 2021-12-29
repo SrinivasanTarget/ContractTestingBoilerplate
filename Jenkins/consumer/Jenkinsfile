@@ -1,0 +1,32 @@
+pipeline {
+   agent any
+
+   stages {
+      stage('checkout') {
+         steps {
+            checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/saikrishna321/contract-testing-boilerplate']]])
+         }
+      }
+
+      stage('Run Consumer Contract Test') {
+         steps {
+             sh 'mvn clean test -Dtest=PactAgeConsumerTest -pl age-consumer'
+        }
+      }
+
+      stage('Publish Pact to Broker') {
+         steps {
+             sh 'cd age-consumer'
+             sh 'mvn pact:publish'
+        }
+      }
+
+      stage('Deploy') {
+         steps {
+            sh 'pact-broker can-i-deploy --pacticipant=ageConsumer --broker-base-url=http://pact_broker.com:9292 --latest'
+         }
+      }
+   }
+
+
+}
