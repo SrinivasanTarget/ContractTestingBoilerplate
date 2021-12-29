@@ -33,7 +33,7 @@
         <dependency>
             <groupId>au.com.dius.pact.consumer</groupId>
             <artifactId>java8</artifactId>
-            <version>4.1.25</version>
+            <version>4.1.31</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
