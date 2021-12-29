@@ -16,8 +16,7 @@ pipeline {
 
       stage('Publish Pact to Broker') {
          steps {
-             sh 'cd age-consumer'
-             sh 'mvn pact:publish'
+             sh 'cd age-consumer && mvn pact:publish'
         }
       }
 

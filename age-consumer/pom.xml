@@ -46,7 +46,7 @@
                 <artifactId>maven</artifactId>
                 <version>4.2.2</version>
                 <configuration>
-                    <pactBrokerUrl>http://localhost:8282</pactBrokerUrl>
+                    <pactBrokerUrl>http://pack_broker.com:9292</pactBrokerUrl>
                     <pactDirectory>target/pacts</pactDirectory>
                     <projectVersion>1.0.0</projectVersion>
                     <tags>
