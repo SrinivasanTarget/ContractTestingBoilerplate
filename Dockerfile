@@ -11,7 +11,7 @@ LABEL git_commit=$GIT_COMMIT
 
 # Once jenkins is running and configured, run the following command to find the list of plugins installed:
 ##  curl -s -k "http://admin:admin@localhost:8080/pluginManager/api/json?depth=1" | jq -r '.plugins[].shortName' | tee plugins.txt
-RUN /usr/local/bin/install-plugins.sh \
+RUN jenkins-plugin-cli --plugins \
   ace-editor \
   ant \
   antisamy-markup-formatter \
